@@ -19,13 +19,13 @@ public class MaiorArea {
 	private Set<String> minas;
 
 	// Maior Retangulo
-	private static Coordenada esquerda;
-	private static Coordenada direita;
-	private static int alturaFinal;
-	private static int areaFinal;
+	private Coordenada esquerda;
+	private Coordenada direita;
+	private int alturaFinal;
+	private int areaFinal;
 	
 	//Auxiliar
-	private static int posTemp = 0;	
+	private int posTemp = 0;	
 
 	public MaiorArea(int w, int h, int m, Set<String> minas) {
 		this.w = w;
@@ -52,7 +52,7 @@ public class MaiorArea {
 		printa();
 	}
 
-	public static void fazAlg(int[] histograma, int Y) {
+	public void fazAlg(int[] histograma, int Y) {
 
 		Stack<Integer> posStack = new Stack<>();
 		Stack<Integer> hStack = new Stack<>();
@@ -84,7 +84,7 @@ public class MaiorArea {
 
 	}
 
-	public static void atualizar(Stack<Integer> posStack, Stack<Integer> hStack, int pos, int Y) {
+	public void atualizar(Stack<Integer> posStack, Stack<Integer> hStack, int pos, int Y) {
 		posTemp = posStack.pop();
 		int hTemp = hStack.pop();
 
@@ -100,7 +100,7 @@ public class MaiorArea {
 
 	}
 
-	public static void printa() {
+	public void printa() {
 		System.out.println("Coordenada Base Esquerda: "+ esquerda.toString());
 		System.out.println("Coordenada Base Direita: "+ direita.toString());
 		System.out.println("Altura: " + alturaFinal);
