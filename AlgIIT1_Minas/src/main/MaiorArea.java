@@ -9,6 +9,8 @@ import java.util.Set;
 import java.util.Stack;
 
 public class MaiorArea {
+	
+	int[][] matriz = new int[6][5];
 
 	// Atributos recebidos
 	private int w;
@@ -40,12 +42,15 @@ public class MaiorArea {
 
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				String coordenada = i + "-" + j;
+				String coordenada = j + "-" + i;
 				if (minas.contains(coordenada)) {
-					histograma[j] = 0;
+					histograma[j] = 0;	
+					System.out.print("("+j+","+i+")");
 				} else {
 					histograma[j]++;
+					matriz[i][j]=1;			
 				}
+				
 			}
 			fazAlg(histograma, i);
 		}
@@ -105,5 +110,11 @@ public class MaiorArea {
 		System.out.println("Coordenada Base Direita: "+ direita.toString());
 		System.out.println("Altura: " + alturaFinal);
 		System.out.println("ÁreaFinal: " + areaFinal);
+		for(int i=0; i<matriz.length;i++){
+			for(int j=0; j<matriz[i].length; j++){
+				System.out.print(matriz[i][j]);
+			}
+			System.out.println();
+		}
 	}
 }

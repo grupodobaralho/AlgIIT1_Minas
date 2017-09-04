@@ -30,7 +30,7 @@ public class App {
 	public static void main(String[] args) {	
 		
 		long startTime = System.currentTimeMillis();
-		load("Files/caso100");	
+		load("Files/teste");	
 		MaiorArea m = new MaiorArea(largura,altura,quantidade,minas);
 	    long stopTime = System.currentTimeMillis();
 	    long elapsedTime = stopTime - startTime;
