@@ -10,7 +10,7 @@ import java.util.Stack;
 
 public class MaiorArea {
 	
-	int[][] matriz = new int[6][5];
+	//int[][] matriz = new int[6][5]; (ESTE CÓDIGO É PARA TESTE!)	
 
 	// Atributos recebidos
 	private int w;
@@ -45,10 +45,10 @@ public class MaiorArea {
 				String coordenada = j + "-" + i;
 				if (minas.contains(coordenada)) {
 					histograma[j] = 0;	
-					System.out.print("("+j+","+i+")");
+					//System.out.print("("+j+","+i+")"); (ESTE CÓDIGO É PARA TESTE!)
 				} else {
 					histograma[j]++;
-					matriz[i][j]=1;			
+					//matriz[i][j]=1;	(ESTE CÓDIGO É PARA TESTE!)		
 				}
 				
 			}
@@ -61,9 +61,6 @@ public class MaiorArea {
 
 		Stack<Integer> posStack = new Stack<>();
 		Stack<Integer> hStack = new Stack<>();
-
-		// int h = 0;
-		// int pos = 0;
 
 		for (int i = 0; i < histograma.length; i++) {
 
@@ -109,12 +106,14 @@ public class MaiorArea {
 		System.out.println("Coordenada Base Esquerda: "+ esquerda.toString());
 		System.out.println("Coordenada Base Direita: "+ direita.toString());
 		System.out.println("Altura: " + alturaFinal);
-		System.out.println("�reaFinal: " + areaFinal);
-		for(int i=0; i<matriz.length;i++){
+		System.out.println("�reaFinal: " + areaFinal);
+		//(ESTE CÓDIGO É PARA TESTE!)
+		/*for(int i=0; i<matriz.length;i++){
 			for(int j=0; j<matriz[i].length; j++){
 				System.out.print(matriz[i][j]);
 			}
 			System.out.println();
 		}
+		*/
 	}
 }

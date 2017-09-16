@@ -14,8 +14,8 @@ import java.util.Set;
 /**
  * Trabalho 1 da discplina de Algoritmos e Estruturas de Dados II *
  * 
- * @Título Você e as Minas
- * @author Israel Deorce Vieira Júnior 13/08/2017
+ * @Tï¿½tulo Vocï¿½ e as Minas
+ * @author Israel Deorce Vieira Jï¿½nior 13/08/2017
  * @email israel.idvj@gmail.com
  * @professor Marcelo Cohen
  */
@@ -30,7 +30,7 @@ public class App {
 	public static void main(String[] args) {	
 		
 		long startTime = System.currentTimeMillis();
-		load("Files/teste");	
+		load("Files/caso010");	
 		MaiorArea m = new MaiorArea(largura,altura,quantidade,minas);
 	    long stopTime = System.currentTimeMillis();
 	    long elapsedTime = stopTime - startTime;
