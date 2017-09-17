@@ -1,10 +1,5 @@
 package main;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
@@ -15,32 +10,51 @@ public class MaiorArea {
 	private int h;
 	private int m;
 
-	// private Map<Coordenada, Integer> minas;
+	// Conjunto que armazena a posicao das minas
 	private Set<String> minas;
 
-	// Maior Retangulo
-	private Coordenada esquerda;
-	private Coordenada direita;
+	// Atributos do Maior Retangulo
+	private Coordenada infEsquerda;
+	private Coordenada infDireita;
+	private Coordenada supEsquerda;
+	private Coordenada supDireita;
 	private int alturaFinal;
 	private int areaFinal;
-	
-	//Auxiliar
-	private int posTemp = 0;	
 
+	// Variavel Auxilar de posicao
+	private int posTemp = 0;
+
+	/**
+	 * Metodo Construtor
+	 * 
+	 * @param w
+	 *            largura
+	 * @param h
+	 *            altura
+	 * @param m
+	 *            quantidade de minas
+	 * @param minas
+	 *            conjunto de minas
+	 */
 	public MaiorArea(int w, int h, int m, Set<String> minas) {
 		this.w = w;
 		this.h = h;
 		this.m = m;
 		this.minas = minas;
+		this.alturaFinal = 0;
+		this.areaFinal = 0;
 		geraHistogramas();
 	}
 
+	/**
+	 * Metodo gerador de histograma que simula o caminhamento em uma matriz w por h
+	 */
 	public void geraHistogramas() {
 		int[] histograma = new int[w];
 
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				String coordenada = i + "-" + j;
+				String coordenada = j + "-" + i;
 				if (minas.contains(coordenada)) {
 					histograma[j] = 0;
 				} else {
@@ -49,16 +63,21 @@ public class MaiorArea {
 			}
 			fazAlg(histograma, i);
 		}
-		printa();
 	}
 
+	/**
+	 * Algoritmo de manipulacao do histograma com duas Stacks auxiliares
+	 * 
+	 * @param histograma
+	 *           histograma atualizado
+	 * @param Y
+	 *           linha atual da "matriz"
+	 */
 	public void fazAlg(int[] histograma, int Y) {
-
+		//stack para guardar posicoes
 		Stack<Integer> posStack = new Stack<>();
+		//stack para guardar a altura atual da pesquisa
 		Stack<Integer> hStack = new Stack<>();
-
-		// int h = 0;
-		// int pos = 0;
 
 		for (int i = 0; i < histograma.length; i++) {
 
@@ -77,13 +96,26 @@ public class MaiorArea {
 			}
 		}
 
-		// esvazia a pilha
+		// Esvazia a pilha
 		while (!hStack.isEmpty()) {
 			atualizar(posStack, hStack, histograma.length, Y);
 		}
 
 	}
 
+	/**
+	 * Metodo auxiliar que remove elementos das pilhas, gera nova Area e confere se 
+	 * eh a maior, atualizando os atributos do maior retangulo
+	 * 
+	 * @param posStack
+	 *            = stack para guardar posicoes
+	 * @param hStack
+	 *            = tack para guardar a altura atual da pesquisa
+	 * @param pos
+	 *            = posicao horizontal maxima do retangulo atual
+	 * @param Y
+	 *            = linha atual da "matriz"
+	 */
 	public void atualizar(Stack<Integer> posStack, Stack<Integer> hStack, int pos, int Y) {
 		posTemp = posStack.pop();
 		int hTemp = hStack.pop();
@@ -93,17 +125,23 @@ public class MaiorArea {
 		if (area > areaFinal) {
 			areaFinal = area;
 			alturaFinal = hTemp;
-			esquerda = new Coordenada(posTemp, Y);
-			direita = new Coordenada(pos - 1, Y);
-
+			infEsquerda = new Coordenada(posTemp, Y);
+			infDireita = new Coordenada(pos - 1, Y);
 		}
 
 	}
 
+	/**
+	 * Metodo que imprime os atributos do maior retangulo
+	 */
 	public void printa() {
-		System.out.println("Coordenada Base Esquerda: "+ esquerda.toString());
-		System.out.println("Coordenada Base Direita: "+ direita.toString());
-		System.out.println("Altura: " + alturaFinal);
-		System.out.println("ÁreaFinal: " + areaFinal);
+		supEsquerda = new Coordenada(infEsquerda.getX(), infEsquerda.getY() - alturaFinal + 1);
+		supDireita = new Coordenada(infDireita.getX(), infDireita.getY() - alturaFinal + 1);
+
+		System.out.println("############## COORDENDAS DO RETANGULO #############");
+		System.out.println(supEsquerda.toString() + supDireita.toString());
+		System.out.println(infEsquerda.toString() + infDireita.toString());
+		System.out.println("Altura total do maior retangulo sem minas: " + alturaFinal);
+		System.out.println("Area total do maior retangulo sem minas: " + areaFinal);
 	}
 }
