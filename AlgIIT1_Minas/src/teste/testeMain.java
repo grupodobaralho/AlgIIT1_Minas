@@ -6,17 +6,21 @@ import main.Coordenada;
 
 public class testeMain {
 
-	// Maior Retangulo
+	// Atributos do Maior Retangulo
 	private static Coordenada esquerda;
 	private static Coordenada direita;
 	private static Coordenada supDireita;
 	private static Coordenada supEsquerda;
-	private static int alturaFinal;
+	private static int alturaFinal = 0;
 	private static int areaFinal = 0;
 
-	// Variaveis de auxilio
+	// Variavel Auxilar de posicao
 	private static int posTemp = 0;
-
+	
+	/**
+	 * Metodo gerador de histograma que caminha em uma matriz
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		int input[][] = { 
@@ -43,9 +47,18 @@ public class testeMain {
 
 	}
 
+	/**
+	 * Algoritmo de manipulacao do histograma com duas Stacks auxiliares
+	 * 
+	 * @param histograma
+	 *           histograma atualizado
+	 * @param Y
+	 *           linha atual da "matriz"
+	 */
 	public static void fazAlg(int[] histograma, int Y) {
-
+		//stack para guardar posicoes
 		Stack<Integer> posStack = new Stack<>();
+		//stack para guardar a altura atual da pesquisa
 		Stack<Integer> hStack = new Stack<>();
 
 		for (int i = 0; i < histograma.length; i++) {
@@ -65,13 +78,26 @@ public class testeMain {
 			}
 		}
 
-		// esvazia a pilha
+		// Esvazia a pilha
 		while (!hStack.isEmpty()) {
 			atualizar(posStack, hStack, histograma.length, Y);
 		}
 
 	}
 
+	/**
+	 * Metodo auxiliar que remove elementos das pilhas, gera nova Area e confere se 
+	 * eh a maior, atualizando os atributos do maior retangulo
+	 * 
+	 * @param posStack
+	 *            = stack para guardar posicoes
+	 * @param hStack
+	 *            = tack para guardar a altura atual da pesquisa
+	 * @param pos
+	 *            = posicao horizontal maxima do retangulo atual
+	 * @param Y
+	 *            = linha atual da "matriz"
+	 */
 	public static void atualizar(Stack<Integer> posStack, Stack<Integer> hStack, int pos, int Y) {
 		posTemp = posStack.pop();
 		int hTemp = hStack.pop();
@@ -88,6 +114,9 @@ public class testeMain {
 
 	}
 
+	/**
+	 * Metodo que imprime os atributos do maior retangulo
+	 */
 	public static void printa(int[][] matriz) {
 		for (int i = 0; i < matriz.length; i++) {
 			for (int j = 0; j < matriz[i].length; j++) {
