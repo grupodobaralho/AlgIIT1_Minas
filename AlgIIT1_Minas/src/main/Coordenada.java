@@ -20,7 +20,7 @@ public class Coordenada {
 
 	@Override
 	public String toString() {
-		return "Coordenadas [x=" + x + ", y=" + y + "]";
+		return  "(x=" + x + ", y=" + y + ")";
 	}
 
 }

@@ -14,8 +14,8 @@ import java.util.Set;
 /**
  * Trabalho 1 da discplina de Algoritmos e Estruturas de Dados II *
  * 
- * @T�tulo Voc� e as Minas
- * @author Israel Deorce Vieira J�nior 13/08/2017
+ * @Titulo Voce e as Minas
+ * @author Israel Deorce Vieira Junior e Hercilio Ortiz 17/09/2017
  * @email israel.idvj@gmail.com
  * @professor Marcelo Cohen
  */
@@ -23,18 +23,17 @@ import java.util.Set;
 public class App {
 
 	private static int largura, altura, quantidade;
-	//private static Map<Coordenada, Integer> minas = new HashMap<>();
 	private static Set<String> minas = new HashSet<>();
 	private static StringBuilder str;
 	
 	public static void main(String[] args) {	
 		
 		long startTime = System.currentTimeMillis();
-		load("Files/caso010");	
+		load("Files/teste");	
 		MaiorArea m = new MaiorArea(largura,altura,quantidade,minas);
 	    long stopTime = System.currentTimeMillis();
 	    long elapsedTime = stopTime - startTime;
-	    System.out.println(elapsedTime);
+	    System.out.println("Tempo decorrido: "+ elapsedTime);
 		/*
 	    startTime = System.currentTimeMillis();
 		load("Files/caso020");	
@@ -79,21 +78,15 @@ public class App {
 	public static void load(String arquivo) {
 
 		Path path = Paths.get(arquivo);
-		String nome = "";
-		Scanner sc2;
+		//Scanner sc2;
 
 		try (Scanner sc = new Scanner(Files.newBufferedReader(path, Charset.forName("utf8")))) {
 
 			largura = Integer.parseInt(sc.next());
 			altura = Integer.parseInt(sc.next());
 			quantidade = Integer.parseInt(sc.next());
-			System.out.println(largura + " " + altura + " " + quantidade);			
+			System.out.println("Largura Total: " + largura + " \nAltura Total: " + altura + " \nQuantidade de Minas:" + quantidade);			
 			while (sc.hasNext()) {
-				//int x = Integer.parseInt(sc.next());
-				//int y = Integer.parseInt(sc.next());
-				//Coordenada c = new Coordenada(x,y);
-				//minas.put(c, 1);
-				
 				String x = sc.next();
 				String y = sc.next();
 				str = new StringBuilder();

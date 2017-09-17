@@ -10,7 +10,7 @@ import java.util.Stack;
 
 public class MaiorArea {
 	
-	//int[][] matriz = new int[6][5]; (ESTE CÓDIGO É PARA TESTE!)	
+	int[][] matriz = new int[6][5]; //(ESTE CÓDIGO É PARA TESTE!)	
 
 	// Atributos recebidos
 	private int w;
@@ -48,7 +48,7 @@ public class MaiorArea {
 					//System.out.print("("+j+","+i+")"); (ESTE CÓDIGO É PARA TESTE!)
 				} else {
 					histograma[j]++;
-					//matriz[i][j]=1;	(ESTE CÓDIGO É PARA TESTE!)		
+					matriz[i][j]=1;	//(ESTE CÓDIGO É PARA TESTE!)		
 				}
 				
 			}
@@ -103,17 +103,23 @@ public class MaiorArea {
 	}
 
 	public void printa() {
-		System.out.println("Coordenada Base Esquerda: "+ esquerda.toString());
-		System.out.println("Coordenada Base Direita: "+ direita.toString());
-		System.out.println("Altura: " + alturaFinal);
-		System.out.println("�reaFinal: " + areaFinal);
+		
+		Coordenada supEsquerda = new Coordenada(esquerda.getX(), esquerda.getY() - alturaFinal + 1);
+		Coordenada supDireita = new Coordenada(direita.getX(), direita.getY() - alturaFinal + 1);
+
+		System.out.println("############## COORDENDAS DO RETANGULO #############");
+		System.out.println(supEsquerda.toString() + supDireita.toString());
+		System.out.println(esquerda.toString() + direita.toString());
+		System.out.println("Altura total do maior retangulo sem minas: " + alturaFinal);
+		System.out.println("Area total do maior retangulo sem minas: " + areaFinal);
+		
 		//(ESTE CÓDIGO É PARA TESTE!)
-		/*for(int i=0; i<matriz.length;i++){
+		for(int i=0; i<matriz.length;i++){
 			for(int j=0; j<matriz[i].length; j++){
 				System.out.print(matriz[i][j]);
 			}
 			System.out.println();
 		}
-		*/
+		
 	}
 }
