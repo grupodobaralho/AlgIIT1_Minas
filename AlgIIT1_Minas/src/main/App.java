@@ -93,6 +93,7 @@ public class App {
 	public static void calculaArea(String arquivo) {
 		long startTime = System.currentTimeMillis();
 		load(arquivo);
+		System.out.println("Calculando Maior Area sem minas...");
 		MaiorArea m = new MaiorArea(largura, altura, quantidade, minas);
 		m.printa();
 		long stopTime = System.currentTimeMillis();
