@@ -1,0 +1,112 @@
+A primeira area nao faz parte do exercicio: 
+Largura Total: 5 
+Altura Total: 6 
+Quantidade de Minas:6
+############## COORDENDAS DO RETANGULO #############
+(x=1, y=4)(x=4, y=4)
+(x=1, y=5)(x=4, y=5)
+Altura total do maior retangulo sem minas: 2
+Area total do maior retangulo sem minas: 8
+Tempo decorrido: 41
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 10000 
+Altura Total: 10000 
+Quantidade de Minas:100
+############## COORDENDAS DO RETANGULO #############
+(x=329, y=6014)(x=5198, y=6014)
+(x=329, y=7497)(x=5198, y=7497)
+Altura total do maior retangulo sem minas: 1484
+Area total do maior retangulo sem minas: 7227080
+Tempo decorrido: 11337
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 20000 
+Altura Total: 20000 
+Quantidade de Minas:200
+############## COORDENDAS DO RETANGULO #############
+(x=764, y=10141)(x=3924, y=10141)
+(x=764, y=15192)(x=3924, y=15192)
+Altura total do maior retangulo sem minas: 5052
+Area total do maior retangulo sem minas: 15969372
+Tempo decorrido: 48273
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 30000 
+Altura Total: 30000 
+Quantidade de Minas:300
+############## COORDENDAS DO RETANGULO #############
+(x=19525, y=15992)(x=25114, y=15992)
+(x=19525, y=21891)(x=25114, y=21891)
+Altura total do maior retangulo sem minas: 5900
+Area total do maior retangulo sem minas: 32981000
+Tempo decorrido: 111863
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 40000 
+Altura Total: 40000 
+Quantidade de Minas:400
+############## COORDENDAS DO RETANGULO #############
+(x=24629, y=27673)(x=27660, y=27673)
+(x=24629, y=39445)(x=27660, y=39445)
+Altura total do maior retangulo sem minas: 11773
+Area total do maior retangulo sem minas: 35695736
+Tempo decorrido: 198305
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 50000 
+Altura Total: 50000 
+Quantidade de Minas:500
+############## COORDENDAS DO RETANGULO #############
+(x=30347, y=44446)(x=38779, y=44446)
+(x=30347, y=49570)(x=38779, y=49570)
+Altura total do maior retangulo sem minas: 5125
+Area total do maior retangulo sem minas: 43219125
+Tempo decorrido: 325437
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 60000 
+Altura Total: 60000 
+Quantidade de Minas:600
+############## COORDENDAS DO RETANGULO #############
+(x=10033, y=49203)(x=15580, y=49203)
+(x=10033, y=59091)(x=15580, y=59091)
+Altura total do maior retangulo sem minas: 9889
+Area total do maior retangulo sem minas: 54864172
+Tempo decorrido: 464394
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 70000 
+Altura Total: 70000 
+Quantidade de Minas:700
+############## COORDENDAS DO RETANGULO #############
+(x=61426, y=57984)(x=69331, y=57984)
+(x=61426, y=66121)(x=69331, y=66121)
+Altura total do maior retangulo sem minas: 8138
+Area total do maior retangulo sem minas: 64339028
+Tempo decorrido: 663180
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 80000 
+Altura Total: 80000 
+Quantidade de Minas:800
+############## COORDENDAS DO RETANGULO #############
+(x=39692, y=75019)(x=67783, y=75019)
+(x=39692, y=77804)(x=67783, y=77804)
+Altura total do maior retangulo sem minas: 2786
+Area total do maior retangulo sem minas: 78264312
+Tempo decorrido: 825389
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 90000 
+Altura Total: 90000 
+Quantidade de Minas:900
+############## COORDENDAS DO RETANGULO #############
+(x=26070, y=84160)(x=40527, y=84160)
+(x=26070, y=89640)(x=40527, y=89640)
+Altura total do maior retangulo sem minas: 5481
+Area total do maior retangulo sem minas: 79244298
+Tempo decorrido: 1102315
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Largura Total: 100000 
+Altura Total: 100000 
+Quantidade de Minas:1000
+############## COORDENDAS DO RETANGULO #############
+(x=6844, y=91186)(x=63626, y=91186)
+(x=6844, y=92837)(x=63626, y=92837)
+Altura total do maior retangulo sem minas: 1652
+Area total do maior retangulo sem minas: 93805516
+Tempo decorrido: 1388188
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
