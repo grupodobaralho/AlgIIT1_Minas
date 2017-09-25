@@ -1,5 +1,10 @@
-package main;
+package Solucao2;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
@@ -11,7 +16,9 @@ public class MaiorArea {
 	private int m;
 
 	// Conjunto que armazena a posicao das minas
-	private Set<String> minas;
+	private List<Coordenada> minas;
+
+	private Map<Integer, List<Integer>> minasPorX;
 
 	// Atributos do Maior Retangulo
 	private Coordenada infEsquerda;
@@ -36,48 +43,89 @@ public class MaiorArea {
 	 * @param minas
 	 *            conjunto de minas
 	 */
-	public MaiorArea(int w, int h, int m, Set<String> minas) {
+	public MaiorArea(int w, int h, int m, List<Coordenada> minas) {
 		this.w = w;
 		this.h = h;
 		this.m = m;
 		this.minas = minas;
 		this.alturaFinal = 0;
 		this.areaFinal = 0;
+		minas.sort(Comparator.comparing(Coordenada::getY));
+		minasPorX = new HashMap<>();
+		for (Coordenada c : minas) {
+			if (minasPorX.containsKey(c.getX()))
+				minasPorX.get(c.getX()).add(c.getY());
+			else {
+				minasPorX.put(c.getX(), new ArrayList<>());
+				minasPorX.get(c.getX()).add(c.getY());
+			}
+		}
 		geraHistogramas();
+	}
+
+	public int[] geraHistogramas2(int Y) {
+		int[] histograma = new int[w];
+		List<Integer> minasEmX = new ArrayList<>();
+
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < w; j++) {
+				if (minas.get(i).getX() == j + 1 && minas.get(i).getY() == Y)
+					minasEmX.add(j+1);
+			}
+
+		}
+		for (int i = 0; i < w; i++) {
+			if (minasEmX.contains(i+1)) {
+				histograma[i] = 0;
+			} else {
+				if (minasPorX.containsKey(i + 1)) {
+					List<Integer> MinasEmY = minasPorX.get(i+1);
+					int maisProxima = -1;
+					for (Integer p : MinasEmY) {
+						if (p < Y) {
+							if (maisProxima < p)
+								maisProxima = p;
+							histograma[i] = Y - maisProxima;
+						} else {
+							histograma[i] = Y;
+						}
+					}
+				} else
+					histograma[i] = Y;
+			}
+		}
+//		for (int i = 0; i < histograma.length; i++) {
+//			System.out.print(histograma[i] + " - ");
+//		}
+//		System.out.println('\n');
+
+		return histograma;
 	}
 
 	/**
 	 * Metodo gerador de histograma que simula o caminhamento em uma matriz w por h
 	 */
 	public void geraHistogramas() {
-		int[] histograma = new int[w];
-
-		for (int i = 0; i < h; i++) {
-			for (int j = 0; j < w; j++) {
-				String coordenada = (j+1) + "-" + (i+1);
-				if (minas.contains(coordenada)) {
-					histograma[j] = 0;
-					minas.remove(coordenada);
-				} else {
-					histograma[j]++;
-				}
-			}
-			fazAlg(histograma, i);
+		Coordenada minaAtual;
+		for (int i = 0; i < m; i++) {
+			minaAtual = minas.get(i);
+			fazAlg(geraHistogramas2(minaAtual.getY()), minaAtual.getY());
 		}
+		fazAlg(geraHistogramas2(h), h -1);
 	}
 
 	/**
 	 * Algoritmo de manipulacao do histograma com duas Stacks auxiliares
 	 * 
 	 * @param histograma
-	 *           histograma atualizado
+	 *            histograma atualizado
 	 * @param Y
-	 *           linha atual da "matriz"
+	 *            linha atual da "matriz"
 	 */
 	public void fazAlg(int[] histograma, int Y) {
-		//stack para guardar posicoes
+		// stack para guardar posicoes
 		Stack<Integer> posStack = new Stack<>();
-		//stack para guardar a altura atual da pesquisa
+		// stack para guardar a altura atual da pesquisa
 		Stack<Integer> hStack = new Stack<>();
 
 		for (int i = 0; i < histograma.length; i++) {
@@ -105,7 +153,7 @@ public class MaiorArea {
 	}
 
 	/**
-	 * Metodo auxiliar que remove elementos das pilhas, gera nova Area e confere se 
+	 * Metodo auxiliar que remove elementos das pilhas, gera nova Area e confere se
 	 * eh a maior, atualizando os atributos do maior retangulo
 	 * 
 	 * @param posStack
@@ -136,10 +184,10 @@ public class MaiorArea {
 	 * Metodo que imprime os atributos do maior retangulo
 	 */
 	public void printa() {
-		infDireita.setX(infDireita.getX()+1);
-		infDireita.setY(infDireita.getY()+1);
-		infEsquerda.setX(infEsquerda.getX()+1);
-		infEsquerda.setY(infEsquerda.getY()+1);
+		infDireita.setX(infDireita.getX() + 1);
+		infDireita.setY(infDireita.getY() + 1);
+		infEsquerda.setX(infEsquerda.getX() + 1);
+		infEsquerda.setY(infEsquerda.getY() + 1);
 		supEsquerda = new Coordenada(infEsquerda.getX(), infEsquerda.getY() - alturaFinal + 1);
 		supDireita = new Coordenada(infDireita.getX(), infDireita.getY() - alturaFinal + 1);
 

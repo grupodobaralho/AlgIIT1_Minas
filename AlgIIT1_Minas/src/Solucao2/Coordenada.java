@@ -1,4 +1,4 @@
-package main;
+package Solucao2;
 
 public class Coordenada {
 
